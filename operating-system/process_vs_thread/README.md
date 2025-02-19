@@ -45,6 +45,47 @@
   - 멀티코어 프로세서의 성능을 극대화할 때 (예: 병렬 계산 작업)
 
 ## 5. 코드 예제
+### 🔹 멀티프로세스 예제 (Java)
+```java
+class ProcessExample {
+    public static void main(String[] args) throws Exception {
+        ProcessBuilder processBuilder = new ProcessBuilder("notepad.exe");
+        Process process = processBuilder.start();
+        System.out.println("새 프로세스 생성됨: " + process.pid());
+    }
+}
+```
+
+### 🔹 멀티스레드 예제 (Java)
+```java
+class ThreadExample extends Thread {
+    public void run() {
+        System.out.println("스레드 실행 중: " + Thread.currentThread().getName());
+    }
+    public static void main(String[] args) {
+        ThreadExample t1 = new ThreadExample();
+        t1.start();
+    }
+}
+```
+
+### 🔹 멀티프로세스 예제 (JavaScript)
+```javascript
+const { exec } = require('child_process');
+exec('notepad.exe', (error, stdout, stderr) => {
+    if (error) console.error(`실패: ${error.message}`);
+    else console.log("새 프로세스 생성됨");
+});
+```
+
+### 🔹 멀티스레드 예제 (JavaScript)
+```javascript
+function worker() {
+    console.log(`스레드 실행 중: ${process.pid}`);
+}
+setTimeout(worker, 1000);
+```
+
 ### 🔹 멀티프로세스 예제 (Python)
 ```python
 import os
@@ -82,4 +123,4 @@ for t in threads:
 - **스레드**는 같은 프로세스 내에서 실행되며, 메모리를 공유하여 더 가볍고 빠름.
 - 상황에 따라 적절한 실행 방식을 선택하는 것이 중요함 (독립성 vs 성능 최적화 고려).
 
-이렇게 정리해 보니 프로세스와 스레드의 개념이 명확해졌다. 실제 개발에서 어떤 방식이 더 적합할지 고려해 보면서 적용해보면 좋겠다!
+이제 프로세스와 스레드의 개념을 더욱 명확히 이해할 수 있으며, 실제 개발에서 어떻게 활용할지 고려해 보면 좋겠다!

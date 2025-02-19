@@ -57,6 +57,80 @@
 - **해결 방법**: 압축(Compaction) 기법, 페이징 기법 사용
 
 ## 5. 코드 예제
+### 🔹 메모리 관리 기법 예제 (Java)
+```java
+class MemoryBlock {
+    int size;
+    boolean allocated;
+    
+    public MemoryBlock(int size) {
+        this.size = size;
+        this.allocated = false;
+    }
+}
+
+class MemoryManager {
+    MemoryBlock[] memory;
+    
+    public MemoryManager(int totalMemory) {
+        memory = new MemoryBlock[totalMemory / 100];
+        for (int i = 0; i < memory.length; i++) {
+            memory[i] = new MemoryBlock(100);
+        }
+    }
+    
+    public MemoryBlock allocate(int processSize) {
+        for (MemoryBlock block : memory) {
+            if (!block.allocated && block.size >= processSize) {
+                block.allocated = true;
+                System.out.println("메모리 " + block.size + "KB 할당됨");
+                return block;
+            }
+        }
+        System.out.println("메모리 부족");
+        return null;
+    }
+    
+    public void deallocate(MemoryBlock block) {
+        block.allocated = false;
+        System.out.println("메모리 " + block.size + "KB 해제됨");
+    }
+}
+```
+
+### 🔹 메모리 관리 기법 예제 (JavaScript)
+```javascript
+class MemoryBlock {
+    constructor(size) {
+        this.size = size;
+        this.allocated = false;
+    }
+}
+
+class MemoryManager {
+    constructor(totalMemory) {
+        this.memory = Array.from({ length: totalMemory / 100 }, () => new MemoryBlock(100));
+    }
+    
+    allocate(processSize) {
+        for (let block of this.memory) {
+            if (!block.allocated && block.size >= processSize) {
+                block.allocated = true;
+                console.log(`메모리 ${block.size}KB 할당됨`);
+                return block;
+            }
+        }
+        console.log("메모리 부족");
+        return null;
+    }
+    
+    deallocate(block) {
+        block.allocated = false;
+        console.log(`메모리 ${block.size}KB 해제됨`);
+    }
+}
+```
+
 ### 🔹 메모리 관리 기법 예제 (Python)
 ```python
 class MemoryBlock:
@@ -80,16 +154,7 @@ class MemoryManager:
     def deallocate(self, block):
         block.allocated = False
         print(f"메모리 {block.size}KB 해제됨")
-
-# 실행 예제
-memory_manager = MemoryManager(1000)
-block1 = memory_manager.allocate(100)
-memory_manager.deallocate(block1)
 ```
 
 ## 6. 정리
-- **메모리 관리는 운영체제가 프로세스의 효율적인 실행을 위해 수행하는 핵심 역할**이다.
-- 다양한 메모리 관리 기법(고정 분할, 동적 분할, 가상 메모리 등)이 존재하며, 각각의 장단점이 있다.
-- 메모리 단편화 문제를 해결하기 위해 페이징, 세그멘테이션 등의 기법이 활용된다.
-
 이제 메모리 관리의 기본 개념과 기법을 이해할 수 있게 되었다. 실제로 운영체제에서 어떻게 동작하는지 더 깊이 연구해보면 좋을 것 같다!
