@@ -8,8 +8,46 @@
 ---
 
 ## 📂 폴더 구조
-cs-study/ ├── operating-system/ # 운영체제 개념 정리 │ ├── process_vs_thread.md │ ├── memory_management.md │ ├── scheduling_algorithms.md │ ├── README.md ├── network/ # 네트워크 개념 정리 │ ├── tcp_vs_udp.md │ ├── http_https.md │ ├── rest_api.md │ ├── README.md ├── database/ # 데이터베이스 개념 정리 │ ├── sql_vs_nosql.md │ ├── indexing.md │ ├── transaction.md │ ├── README.md ├── system-design/ # 시스템 설계 개념 정리 │ ├── load_balancing.md │ ├── caching_strategies.md │ ├── database_sharding.md │ ├── README.md ├── data-structure/ # 자료구조 개념 정리 │ ├── array_vs_linkedlist.md │ ├── stack_queue.md │ ├── tree_graph.md │ ├── README.md ├── algorithm/ # 알고리즘 개념 정리 │ ├── sorting.md │ ├── dynamic_programming.md │ ├── graph_algorithms.md │ ├── README.md ├── interview-questions/ # CS 면접 대비 질문 정리 │ ├── operating_system.md │ ├── network.md │ ├── database.md │ ├── system_design.md │ ├── data_structure.md │ ├── algorithm.md │ ├── README.md ├── README.md # CS Study 메인 문서
-
+📂 **cs-study**  
+├── 📁 **operating-system/**    # 운영체제 개념 정리  
+│   ├── 📄 process_vs_thread.md  
+│   ├── 📄 memory_management.md  
+│   ├── 📄 scheduling_algorithms.md  
+│   ├── 📄 README.md  
+├── 📁 **network/**             # 네트워크 개념 정리  
+│   ├── 📄 tcp_vs_udp.md  
+│   ├── 📄 http_https.md  
+│   ├── 📄 rest_api.md  
+│   ├── 📄 README.md  
+├── 📁 **database/**            # 데이터베이스 개념 정리  
+│   ├── 📄 sql_vs_nosql.md  
+│   ├── 📄 indexing.md  
+│   ├── 📄 transaction.md  
+│   ├── 📄 README.md  
+├── 📁 **system-design/**       # 시스템 설계 개념 정리  
+│   ├── 📄 load_balancing.md  
+│   ├── 📄 caching_strategies.md  
+│   ├── 📄 database_sharding.md  
+│   ├── 📄 README.md  
+├── 📁 **data-structure/**      # 자료구조 개념 정리  
+│   ├── 📄 array_vs_linkedlist.md  
+│   ├── 📄 stack_queue.md  
+│   ├── 📄 tree_graph.md  
+│   ├── 📄 README.md  
+├── 📁 **algorithm/**           # 알고리즘 개념 정리  
+│   ├── 📄 sorting.md  
+│   ├── 📄 dynamic_programming.md  
+│   ├── 📄 graph_algorithms.md  
+│   ├── 📄 README.md  
+├── 📁 **interview-questions/** # CS 면접 대비 질문 정리  
+│   ├── 📄 operating_system.md  
+│   ├── 📄 network.md  
+│   ├── 📄 database.md  
+│   ├── 📄 system_design.md  
+│   ├── 📄 data_structure.md  
+│   ├── 📄 algorithm.md  
+│   ├── 📄 README.md  
+├── 📄 **README.md**            # CS Study 메인 문서  
 
 ---
 
