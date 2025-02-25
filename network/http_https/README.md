@@ -40,14 +40,33 @@ HTTP(HyperText Transfer Protocol)와 HTTPS(HyperText Transfer Protocol Secure)�
 
 ## 4. 코드 예제
 ### 🔹 HTTP 요청 예제
-##### JavaScript (Fetch API)
+##### Java (HTTP 요청)
+```java
+import java.io.*;
+import java.net.*;
+
+public class HttpExample {
+    public static void main(String[] args) throws Exception {
+        URL url = new URL("http://example.com");
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+        String inputLine;
+        while ((inputLine = in.readLine()) != null) {
+            System.out.println(inputLine);
+        }
+        in.close();
+    }
+}
+```
+
+##### JavaScript (HTTP 요청)
 ```javascript
 fetch('http://example.com')
   .then(response => response.text())
   .then(data => console.log(data));
 ```
 
-##### Python (requests 라이브러리)
+##### Python (HTTP 요청)
 ```python
 import requests
 response = requests.get("http://example.com")
@@ -55,10 +74,11 @@ print(response.text)
 ```
 
 ### 🔹 HTTPS 요청 예제
-##### Java (HttpURLConnection)
+##### Java (HTTPS 요청)
 ```java
 import java.io.*;
 import java.net.*;
+import javax.net.ssl.HttpsURLConnection;
 
 public class HttpsExample {
     public static void main(String[] args) throws Exception {
@@ -72,6 +92,20 @@ public class HttpsExample {
         in.close();
     }
 }
+```
+
+##### JavaScript (HTTPS 요청)
+```javascript
+fetch('https://example.com')
+  .then(response => response.text())
+  .then(data => console.log(data));
+```
+
+##### Python (HTTPS 요청)
+```python
+import requests
+response = requests.get("https://example.com", verify=True)
+print(response.text)
 ```
 
 ---
@@ -88,5 +122,3 @@ public class HttpsExample {
 - **HTTP는 보안이 없지만 속도가 빠르며, HTTPS는 보안성이 뛰어나지만 약간의 속도 저하가 있음**
 - **HTTPS는 데이터 암호화와 무결성을 제공하며, 신뢰할 수 있는 웹사이트 운영을 위한 필수 요소**
 - **SSL/TLS 인증서를 적용하여 보안 강화를 추천**
-
-이제 HTTP와 HTTPS의 차이점을 명확히 이해할 수 있으며, 보안이 중요한 웹 서비스에서 HTTPS를 반드시 사용해야 하는 이유도 확인할 수 있다!
