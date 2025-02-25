@@ -113,6 +113,27 @@ print(response.text)
 ## 5. HTTPS 적용 방법
 1. **SSL/TLS 인증서 구매 또는 무료 인증서 사용 (Let's Encrypt 추천)**
 2. **웹 서버 설정 (Nginx, Apache 등)에서 HTTPS 적용**
+    - **Nginx 설정 예시**:
+      ```nginx
+      server {
+          listen 80;
+          server_name example.com;
+          return 301 https://$host$request_uri;
+      }
+
+      server {
+          listen 443 ssl;
+          server_name example.com;
+
+          ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
+          ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+
+          location / {
+              root /var/www/html;
+              index index.html;
+          }
+      }
+      ```
 3. **HSTS(HTTP Strict Transport Security) 적용으로 강제 HTTPS 전환**
 4. **인증서 자동 갱신 설정 (Certbot 등 활용)**
 
